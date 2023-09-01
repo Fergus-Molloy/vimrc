@@ -16,8 +16,12 @@ vim.o.clipboard = ''
 
 -- Enable break indent
 vim.o.breakindent = true
+
+-- set tab width default to 4
 vim.o.joinspaces = false
 vim.o.expandtab = true
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
 
 -- Save undo history
 vim.o.undofile = true
