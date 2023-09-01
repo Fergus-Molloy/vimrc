@@ -17,8 +17,12 @@ require('lazy').setup({
     -- git commands in vim
     {
         'tpope/vim-fugitive',
-        event = "VeryLazy"
+        cmd = "Git",
+        keys = {
+            { "<c-g>", "<cmd>Git<cr>", desc = "Open git preview" }
+        },
     },
+
     {
         -- LSP Configuration & Plugins
         'neovim/nvim-lspconfig',
@@ -126,13 +130,33 @@ require('lazy').setup({
     {
         'akinsho/toggleterm.nvim',
         version = "~2.7",
+        cmd = "ToggleTerm",
         opts = {
             open_mapping = [[<C-t>]],
             shade_terminals = false,
         }
     },
 
-    { "ThePrimeagen/harpoon", config = {} },
+    {
+        "ThePrimeagen/harpoon",
+        config = {},
+        keys = {
+            { "<c-a>",           "<cmd>lua require('harpoon.mark').add_file()<cr>",        desc = "Add file to harpoon" },
+            { "<leader><space>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "toggle harpoon menu" },
+            {
+                "<tab>",
+                "<cmd>lua require('harpoon.ui').nav_next()<cr>",
+                desc =
+                "goto next harpoon item"
+            },
+            {
+                "<s-tab>",
+                "<cmd>lua require('harpoon.ui').nav_prev()<cr>",
+                desc =
+                "goto prev harpoon item"
+            },
+        },
+    },
 
     require 'plugins.autoformat',
 }, {})
