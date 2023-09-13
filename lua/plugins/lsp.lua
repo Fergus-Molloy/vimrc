@@ -57,7 +57,7 @@ end
 --
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
-local servers = { "html", "astro", "cssls", "tsserver" }
+local servers = { "html", "astro", "nil_ls", "cssls", "tsserver" }
 
 -- Setup neovim lua configuration
 require('neodev').setup()

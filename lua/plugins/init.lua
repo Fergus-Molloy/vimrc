@@ -14,8 +14,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-    -- git commands in vim
     {
+        -- git commands in vim
         'tpope/vim-fugitive',
         cmd = "Git",
         keys = {
@@ -50,14 +50,15 @@ require('lazy').setup({
 
     -- Useful plugin to show you pending keybinds.
     { 'folke/which-key.nvim',  opts = {} },
+
     {
         -- Adds git related signs to the gutter, as well as utilities for managing changes
         'lewis6991/gitsigns.nvim',
         opts = configs.gitsigns,
     },
 
-    -- colorscheme
     {
+        -- colorscheme
         "sainnhe/gruvbox-material",
         priority = 1000,
         config = function() vim.cmd("colorscheme gruvbox-material") end
@@ -91,8 +92,8 @@ require('lazy').setup({
     -- "gc" to comment visual regions/lines
     { 'numToStr/Comment.nvim', opts = {}, event = "BufEnter" },
 
-    -- Fuzzy Finder (files, lsp, etc)
     {
+        -- Fuzzy Finder (files, lsp, etc)
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
         dependencies = {
@@ -121,16 +122,16 @@ require('lazy').setup({
         build = ':TSUpdate',
     },
 
-    -- better f motion
     {
+        -- better f motion
         "justinmk/vim-sneak",
         event = "BufEnter",
     },
 
     {
+        -- toggle-able terminal
         'akinsho/toggleterm.nvim',
         version = "~2.7",
-        cmd = "ToggleTerm",
         opts = {
             open_mapping = [[<C-t>]],
             shade_terminals = false,
@@ -138,11 +139,22 @@ require('lazy').setup({
     },
 
     {
+        -- switch between often used files easily
         "ThePrimeagen/harpoon",
         config = {},
         keys = {
-            { "<c-a>",           "<cmd>lua require('harpoon.mark').add_file()<cr>",        desc = "Add file to harpoon" },
-            { "<leader><space>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "toggle harpoon menu" },
+            {
+                "<c-a>",
+                "<cmd>lua require('harpoon.mark').add_file()<cr>",
+                desc =
+                "Add file to harpoon"
+            },
+            {
+                "<leader><space>",
+                "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
+                desc =
+                "toggle harpoon menu"
+            },
             {
                 "<tab>",
                 "<cmd>lua require('harpoon.ui').nav_next()<cr>",
@@ -156,6 +168,11 @@ require('lazy').setup({
                 "goto prev harpoon item"
             },
         },
+    },
+
+    {
+        -- open files where i left them
+        "farmergreg/vim-lastplace"
     },
 
     require 'plugins.autoformat',
