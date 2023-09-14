@@ -1,4 +1,4 @@
-local configs = require "plugins.config"
+local configs = require 'plugins.config'
 -- Install package manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -17,9 +17,9 @@ require('lazy').setup({
     {
         -- git commands in vim
         'tpope/vim-fugitive',
-        cmd = "Git",
+        cmd = 'Git',
         keys = {
-            { "<c-g>", "<cmd>Git<cr>", desc = "Open git preview" }
+            { '<c-g>', '<cmd>Git<cr>', desc = 'Open git preview' },
         },
     },
 
@@ -28,7 +28,7 @@ require('lazy').setup({
         'neovim/nvim-lspconfig',
         dependencies = {
             -- Useful status updates for LSP
-            { 'j-hui/fidget.nvim', tag = 'legacy', opts = {}, event = "LspAttach" },
+            { 'j-hui/fidget.nvim', tag = 'legacy', opts = {}, event = 'LspAttach' },
 
             -- Additional lua configuration, makes nvim stuff amazing!
             'folke/neodev.nvim',
@@ -48,6 +48,20 @@ require('lazy').setup({
         },
     },
 
+    {
+        -- auto formatter
+        'stevearc/conform.nvim',
+        opts = {
+            formatters_by_ft = {
+                rust = { 'rustfmt' },
+            },
+            format_on_save = {
+                timeout = 500,
+                lsp_fallback = true,
+            },
+        },
+    },
+
     -- Useful plugin to show you pending keybinds.
     { 'folke/which-key.nvim',  opts = {} },
 
@@ -59,9 +73,11 @@ require('lazy').setup({
 
     {
         -- colorscheme
-        "sainnhe/gruvbox-material",
+        'sainnhe/gruvbox-material',
         priority = 1000,
-        config = function() vim.cmd("colorscheme gruvbox-material") end
+        config = function()
+            vim.cmd 'colorscheme gruvbox-material'
+        end,
     },
 
     {
@@ -90,7 +106,7 @@ require('lazy').setup({
     },
 
     -- "gc" to comment visual regions/lines
-    { 'numToStr/Comment.nvim', opts = {}, event = "BufEnter" },
+    { 'numToStr/Comment.nvim', opts = {}, event = 'BufEnter' },
 
     {
         -- Fuzzy Finder (files, lsp, etc)
@@ -124,61 +140,57 @@ require('lazy').setup({
 
     {
         -- better f motion
-        "justinmk/vim-sneak",
-        event = "BufEnter",
+        'justinmk/vim-sneak',
+        event = 'BufEnter',
     },
 
     {
         -- toggle-able terminal
         'akinsho/toggleterm.nvim',
-        version = "~2.7",
+        version = '~2.7',
         opts = {
             open_mapping = [[<C-t>]],
             shade_terminals = false,
-        }
+        },
     },
 
     {
         -- switch between often used files easily
-        "ThePrimeagen/harpoon",
+        'ThePrimeagen/harpoon',
         config = {},
         keys = {
             {
-                "<c-a>",
+                '<c-a>',
                 "<cmd>lua require('harpoon.mark').add_file()<cr>",
-                desc =
-                "Add file to harpoon"
+                desc = 'Add file to harpoon',
             },
             {
-                "<leader><space>",
+                '<leader><space>',
                 "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
-                desc =
-                "toggle harpoon menu"
+                desc = 'toggle harpoon menu',
             },
             {
-                "<tab>",
+                '<tab>',
                 "<cmd>lua require('harpoon.ui').nav_next()<cr>",
-                desc =
-                "goto next harpoon item"
+                desc = 'goto next harpoon item',
             },
             {
-                "<s-tab>",
+                '<s-tab>',
                 "<cmd>lua require('harpoon.ui').nav_prev()<cr>",
-                desc =
-                "goto prev harpoon item"
+                desc = 'goto prev harpoon item',
             },
         },
     },
 
     {
         -- open files where i left them
-        "farmergreg/vim-lastplace"
+        'farmergreg/vim-lastplace',
     },
 
-    require 'plugins.autoformat',
+    -- require 'plugins.autoformat',
 }, {})
 
 -- [[ Configure Plugins ]]
-require "plugins.treesitter"
-require "plugins.telescope"
-require "plugins.lsp"
+require 'plugins.treesitter'
+require 'plugins.telescope'
+require 'plugins.lsp'
