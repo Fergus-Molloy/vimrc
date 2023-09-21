@@ -51,3 +51,6 @@ vim.o.cursorline = true
 vim.o.colorcolumn = "80"
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
+
+-- don't show mode in command bar
+vim.o.showmode = false

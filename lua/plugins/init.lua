@@ -75,23 +75,24 @@ require('lazy').setup({
         -- colorscheme
         'sainnhe/gruvbox-material',
         priority = 1000,
-        config = function()
-            vim.cmd 'colorscheme gruvbox-material'
-        end,
     },
 
     {
-        -- Set lualine as statusline
-        'nvim-lualine/lualine.nvim',
-        -- See `:help lualine.txt`
+        "rebelot/kanagawa.nvim",
+        priority = 1000,
+    },
+
+    {
+        "ribru17/bamboo.nvim",
+        priority = 1000,
         opts = {
-            options = {
-                icons_enabled = false,
-                theme = 'gruvbox-material',
-                component_separators = '|',
-                section_separators = '',
-            },
         },
+        config = function()
+            require('bamboo').setup({
+                style = "vulgaris",
+            })
+            require('bamboo').load()
+        end,
     },
 
     {
@@ -186,6 +187,8 @@ require('lazy').setup({
         -- open files where i left them
         'farmergreg/vim-lastplace',
     },
+
+    require 'plugins.lualine'
 
     -- require 'plugins.autoformat',
 }, {})
