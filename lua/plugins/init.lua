@@ -188,6 +188,16 @@ require('lazy').setup({
         'farmergreg/vim-lastplace',
     },
 
+    {
+        --better f and t
+        'justinmk/vim-sneak'
+    },
+
+    {
+        -- make f and t easy to use
+        'unblevable/quick-scope'
+    },
+
     require 'plugins.lualine'
 
     -- require 'plugins.autoformat',
