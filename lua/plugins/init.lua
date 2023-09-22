@@ -131,22 +131,22 @@ require('lazy').setup({
         keys = {
             {
                 '<c-a>',
-                "<cmd>lua require('harpoon.mark').add_file()<cr>",
+                function() require('harpoon.mark').add_file() end,
                 desc = 'Add file to harpoon',
             },
             {
                 '<leader><space>',
-                "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
+                function() require('harpoon.ui').toggle_quick_menu() end,
                 desc = 'toggle harpoon menu',
             },
             {
                 '<tab>',
-                "<cmd>lua require('harpoon.ui').nav_next()<cr>",
+                function() require('harpoon.ui').nav_next() end,
                 desc = 'goto next harpoon item',
             },
             {
                 '<s-tab>',
-                "<cmd>lua require('harpoon.ui').nav_prev()<cr>",
+                function() require('harpoon.ui').nav_prev() end,
                 desc = 'goto prev harpoon item',
             },
         },
@@ -173,6 +173,8 @@ require('lazy').setup({
         -- file manipulation in a vim buffer
         'stevearc/oil.nvim',
         opts = {},
+        cmd = { 'Oil' },
+        keys = { { '<c-f>o', '<cmd>Oil --float<cr>', desc = "[F]older [O]pen" } },
     },
 
     {
