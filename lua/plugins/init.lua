@@ -38,6 +38,7 @@ require('lazy').setup({
     {
         -- Autocompletion
         'hrsh7th/nvim-cmp',
+        event = "LspAttach",
         dependencies = {
             -- Snippet Engine & its associated nvim-cmp source
             'L3MON4D3/LuaSnip',
@@ -51,6 +52,7 @@ require('lazy').setup({
     {
         -- auto formatter
         'stevearc/conform.nvim',
+        event = "LspAttach",
         opts = {
             formatters_by_ft = {
                 rust = { 'rustfmt' },
@@ -63,11 +65,12 @@ require('lazy').setup({
     },
 
     -- Useful plugin to show you pending keybinds.
-    { 'folke/which-key.nvim',  opts = {} },
+    { 'folke/which-key.nvim',  event = "VeryLazy", opts = {} },
 
     {
         -- Adds git related signs to the gutter, as well as utilities for managing changes
         'lewis6991/gitsigns.nvim',
+        event = "BufReadPost",
         opts = configs.gitsigns,
     },
 
@@ -98,6 +101,7 @@ require('lazy').setup({
     {
         -- Add indentation guides even on blank lines
         'lukas-reineke/indent-blankline.nvim',
+        event = "BufReadPost",
         -- Enable `lukas-reineke/indent-blankline.nvim`
         -- See `:help indent_blankline.txt`
         opts = {
@@ -107,43 +111,7 @@ require('lazy').setup({
     },
 
     -- "gc" to comment visual regions/lines
-    { 'numToStr/Comment.nvim', opts = {}, event = 'BufEnter' },
-
-    {
-        -- Fuzzy Finder (files, lsp, etc)
-        'nvim-telescope/telescope.nvim',
-        branch = '0.1.x',
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-            -- Only load if `make` is available. Make sure you have the system
-            -- requirements installed.
-            {
-                'nvim-telescope/telescope-fzf-native.nvim',
-                -- NOTE: If you are having trouble with this installation,
-                --       refer to the README for telescope-fzf-native for more instructions.
-                build = 'make',
-                cond = function()
-                    return vim.fn.executable 'make' == 1
-                end,
-            },
-        },
-    },
-
-    {
-        -- Highlight, edit, and navigate code
-        'nvim-treesitter/nvim-treesitter',
-        dependencies = {
-            'nvim-treesitter/nvim-treesitter-textobjects',
-        },
-        build = ':TSUpdate',
-    },
-
-    {
-        -- better f motion
-        'justinmk/vim-sneak',
-        event = 'BufEnter',
-    },
+    { 'numToStr/Comment.nvim', opts = {},          event = 'BufEnter' },
 
     {
         -- toggle-able terminal
@@ -153,6 +121,7 @@ require('lazy').setup({
             open_mapping = [[<C-t>]],
             shade_terminals = false,
         },
+        keys = { "<c-t>" },
     },
 
     {
@@ -190,20 +159,28 @@ require('lazy').setup({
 
     {
         --better f and t
-        'justinmk/vim-sneak'
+        'justinmk/vim-sneak',
+        keys = { 's' }
     },
 
     {
         -- make f and t easy to use
-        'unblevable/quick-scope'
+        'unblevable/quick-scope',
+        event = "VeryLazy",
     },
 
-    require 'plugins.lualine'
+    {
+        -- file manipulation in a vim buffer
+        'stevearc/oil.nvim',
+        opts = {},
+    },
+
+    require 'plugins.lualine',
+    require 'plugins.telescope',
+    require 'plugins.treesitter',
 
     -- require 'plugins.autoformat',
 }, {})
 
 -- [[ Configure Plugins ]]
-require 'plugins.treesitter'
-require 'plugins.telescope'
 require 'plugins.lsp'

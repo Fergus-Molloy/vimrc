@@ -12,12 +12,16 @@ vim.keymap.set({ 'n', }, '<leader>fm', '<cmd>Format<cr>', { silent = true, desc 
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+vim.keymap.set({ 'n' }, '<c-n>', '<cmd>bn<cr>', { silent = true, desc = 'Next buffer' })
+vim.keymap.set({ 'n' }, '<c-p>', '<cmd>bp<cr>', { silent = true, desc = 'Previous buffer' })
+vim.keymap.set({ 'n' }, '<leader>x', '<cmd>bd<cr>', { silent = true, desc = 'Delete buffer' })
+
 -- [[ Highlight on yank ]]
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    group = highlight_group,
+    pattern = '*',
 })
