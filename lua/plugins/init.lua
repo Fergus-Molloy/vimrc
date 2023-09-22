@@ -160,7 +160,7 @@ require('lazy').setup({
     {
         --better f and t
         'justinmk/vim-sneak',
-        keys = { 's' }
+        keys = { 's', 'S' },
     },
 
     {
@@ -173,6 +173,11 @@ require('lazy').setup({
         -- file manipulation in a vim buffer
         'stevearc/oil.nvim',
         opts = {},
+    },
+
+    {
+        -- surround plugin
+        'tpope/vim-surround'
     },
 
     require 'plugins.lualine',
