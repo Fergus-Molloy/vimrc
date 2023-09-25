@@ -130,7 +130,7 @@ require('lazy').setup({
         config = {},
         keys = {
             {
-                '<c-a>',
+                '<c-s>',
                 function() require('harpoon.mark').add_file() end,
                 desc = 'Add file to harpoon',
             },
@@ -185,6 +185,7 @@ require('lazy').setup({
     require 'plugins.lualine',
     require 'plugins.telescope',
     require 'plugins.treesitter',
+    require 'plugins.lspsaga',
 
     -- require 'plugins.autoformat',
 }, {})
