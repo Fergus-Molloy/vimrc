@@ -16,6 +16,10 @@ vim.keymap.set({ 'n' }, '<c-n>', '<cmd>bn<cr>', { silent = true, desc = 'Next bu
 vim.keymap.set({ 'n' }, '<c-p>', '<cmd>bp<cr>', { silent = true, desc = 'Previous buffer' })
 vim.keymap.set({ 'n' }, '<leader>x', '<cmd>bd<cr>', { silent = true, desc = 'Delete buffer' })
 
+-- don't replace register when pasting in visual mode
+vim.keymap.set({ 'x' }, 'p', 'pgvy', { silent = true })
+vim.keymap.set({ 'x' }, 'P', 'Pgvy', { silent = true })
+
 -- [[ Highlight on yank ]]
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
