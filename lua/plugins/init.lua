@@ -107,7 +107,11 @@ require('lazy').setup({
         event = "BufReadPost",
         main = "ibl",
         opts = {
-        }
+            scope = {
+                enabled = true,
+                highlight = { "Function", "Label", "Keyword", "Namespace" },
+            },
+        },
     },
 
     -- "gc" to comment visual regions/lines
