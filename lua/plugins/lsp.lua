@@ -25,10 +25,6 @@ local on_attach = function(_, bufnr)
     nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
     nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
 
-    -- See `:help K` for why this keymap
-    nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-
     -- Lesser used LSP functionality
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
     nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
@@ -51,7 +47,7 @@ end
 --
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
-local servers = { "html", "astro", "nil_ls", "cssls", "tsserver" }
+local servers = { "html", "astro", "nil_ls", "cssls", "tsserver", "ocamllsp" }
 
 -- Setup neovim lua configuration
 require('neodev').setup()
@@ -100,6 +96,22 @@ lspconfig.lua_ls.setup {
             },
         },
     },
+}
+
+lspconfig.hls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        filetypes = { 'haskell', 'lhaskell', 'cabal' },
+        cabalFormattingProvider = "cabalfmt",
+        formattingProvider = "fourmolu",
+    },
+}
+
+lspconfig.omnisharp.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = { '/nix/store/s6rln30aayzaczf42d5926v8477qn5ws-omnisharp-roslyn-1.39.8/bin/OmniSharp' },
 }
 
 -- [[ Configure nvim-cmp ]]

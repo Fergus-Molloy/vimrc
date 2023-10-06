@@ -77,7 +77,11 @@ require('lazy').setup({
     {
         -- colorscheme
         'sainnhe/gruvbox-material',
+        lazy = false, -- load this first
         priority = 1000,
+        config = function()
+            vim.cmd [[ colorscheme gruvbox-material ]]
+        end
     },
 
     {
@@ -90,12 +94,12 @@ require('lazy').setup({
         priority = 1000,
         opts = {
         },
-        config = function()
-            require('bamboo').setup({
-                style = "vulgaris",
-            })
-            require('bamboo').load()
-        end,
+        -- config = function()
+        --     require('bamboo').setup({
+        --         style = "vulgaris",
+        --     })
+        --     require('bamboo').load()
+        -- end,
     },
     {
         -- Add indentation guides even on blank lines
@@ -103,7 +107,6 @@ require('lazy').setup({
         event = "BufReadPost",
         main = "ibl",
         opts = {
-            show_trailing_blankline_indent = false,
         }
     },
 
@@ -127,7 +130,7 @@ require('lazy').setup({
         config = {},
         keys = {
             {
-                '<c-s>',
+                '<leader>ha',
                 function() require('harpoon.mark').add_file() end,
                 desc = 'Add file to harpoon',
             },
