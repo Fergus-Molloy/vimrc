@@ -44,11 +44,11 @@ vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'
 
 vim.o.termguicolors = true
-vim.o.guifont = "Fira Code:h16"
+vim.o.guifont = 'Fira Code:h16'
 
 -- better cursor visibility
 vim.o.cursorline = true
-vim.o.colorcolumn = "80"
+vim.o.colorcolumn = '80'
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
 

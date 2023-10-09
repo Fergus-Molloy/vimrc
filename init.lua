@@ -2,11 +2,11 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 if vim.g.vscode then
-  require "keymaps"
+  require 'keymaps'
 else
-  require "keymaps"
-  require "plugins"
-  require "options"
+  require 'keymaps'
+  require 'plugins'
+  require 'options'
 end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
