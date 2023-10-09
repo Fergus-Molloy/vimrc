@@ -6,7 +6,7 @@ return {
     formatters_by_ft = {
       rust = { 'rustfmt' },
       lua = { 'stylua' },
-      nix = { 'nixpkgs-fmt' },
+      nix = { 'nixpkgs_fmt' },
     },
     format_on_save = {
       timeout = 500,
