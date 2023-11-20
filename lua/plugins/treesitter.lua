@@ -6,6 +6,7 @@ return {
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
+  cmd = 'TSInstall',
   build = ':TSUpdate',
   config = function()
     local configs = require 'nvim-treesitter.configs'

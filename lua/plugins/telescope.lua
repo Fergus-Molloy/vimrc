@@ -7,7 +7,7 @@ return {
   event = 'LspAttach',
   branch = '0.1.x',
   dependencies = {
-    'nvim-lua/plenary.nvim',
+    { 'nvim-lua/plenary.nvim' },
     -- Fuzzy Finder Algorithm which requires local dependencies to be built.
     -- Only load if `make` is available. Make sure you have the system
     -- requirements installed.
@@ -33,7 +33,10 @@ return {
   },
   config = function()
     -- Enable telescope fzf native, if installed
-    pcall(require('telescope').load_extension, 'fzf')
+    local result, error = pcall(require('telescope').load_extension, 'fzf')
+    if not result then
+      print(error)
+    end
   end,
   keys = {
     {

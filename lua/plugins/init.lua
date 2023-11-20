@@ -19,7 +19,16 @@ require('lazy').setup({
     'tpope/vim-fugitive',
     cmd = 'Git',
     keys = {
-      { '<c-g>', '<cmd>Git<cr>', desc = 'Open git preview' },
+      { '<leader>gf', '<cmd>Git<cr>', desc = 'Open git preview' },
+    },
+  },
+
+  {
+    -- lazygit in vim
+    'kdheepak/lazygit.nvim',
+    cmd = 'LazyGit',
+    keys = {
+      { '<leader>gg', '<cmd>LazyGit<cr>', desc = 'Open lazy git' },
     },
   },
 
