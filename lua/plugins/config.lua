@@ -1,6 +1,7 @@
-local M = {}
-
-M.gitsigns = {
+return {
+    'lewis6991/gitsigns.nvim',
+    event = 'BufReadPost',
+  opts =  {
   -- See `:help gitsigns.txt`
   signs = {
     add = { text = '+' },
@@ -15,5 +16,4 @@ M.gitsigns = {
     vim.keymap.set('n', '<leader>ph', require('gitsigns').preview_hunk, { buffer = bufnr, desc = '[P]review [H]unk' })
   end,
 }
-
-return M
+}

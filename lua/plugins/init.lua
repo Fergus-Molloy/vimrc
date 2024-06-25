@@ -1,19 +1,5 @@
-local configs = require 'plugins.config'
 -- Install package manager
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable', -- latest stable release
-    lazypath,
-  }
-end
-vim.opt.rtp:prepend(lazypath)
-
-require('lazy').setup({
+return {
   {
     -- git commands in vim
     'tpope/vim-fugitive',
@@ -62,13 +48,6 @@ require('lazy').setup({
   { 'folke/which-key.nvim', event = 'VeryLazy', opts = {} },
 
   {
-    -- Adds git related signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
-    event = 'BufReadPost',
-    opts = configs.gitsigns,
-  },
-
-  {
     -- colorscheme
     'sainnhe/gruvbox-material',
     lazy = false, -- load this first
@@ -78,22 +57,6 @@ require('lazy').setup({
     end,
   },
 
-  {
-    'rebelot/kanagawa.nvim',
-    priority = 1000,
-  },
-
-  {
-    'ribru17/bamboo.nvim',
-    priority = 1000,
-    opts = {},
-    -- config = function()
-    --     require('bamboo').setup({
-    --         style = "vulgaris",
-    --     })
-    --     require('bamboo').load()
-    -- end,
-  },
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
@@ -119,42 +82,6 @@ require('lazy').setup({
       shade_terminals = false,
     },
     keys = { '<c-t>' },
-  },
-
-  {
-    -- switch between often used files easily
-    'ThePrimeagen/harpoon',
-    config = {},
-    keys = {
-      {
-        '<leader>ha',
-        function()
-          require('harpoon.mark').add_file()
-        end,
-        desc = 'Add file to harpoon',
-      },
-      {
-        '<leader><space>',
-        function()
-          require('harpoon.ui').toggle_quick_menu()
-        end,
-        desc = 'toggle harpoon menu',
-      },
-      {
-        '<tab>',
-        function()
-          require('harpoon.ui').nav_next()
-        end,
-        desc = 'goto next harpoon item',
-      },
-      {
-        '<s-tab>',
-        function()
-          require('harpoon.ui').nav_prev()
-        end,
-        desc = 'goto prev harpoon item',
-      },
-    },
   },
 
   {
@@ -194,7 +121,4 @@ require('lazy').setup({
   require 'plugins.conform',
 
   -- require 'plugins.autoformat',
-}, {})
-
--- [[ Configure Plugins ]]
-require 'plugins.lsp'
+}
