@@ -1,9 +1,8 @@
 return {
   -- NOTE: [ THEMES ]
-  { 'savq/melange-nvim' },
-  { 'yorumicolors/yorumi.nvim' },
-  { 'f4z3r/gruvbox-material.nvim' },
-  { 'rebelot/kanagawa.nvim' },
+  -- { 'savq/melange-nvim' },
+  -- { 'yorumicolors/yorumi.nvim' },
+  -- { 'f4z3r/gruvbox-material.nvim' },
   {
     'rebelot/kanagawa.nvim',
     lazy = false,
@@ -67,6 +66,7 @@ return {
 
   {
     'nmac427/guess-indent.nvim',
+    Event = 'BufEnter',
     opts = {},
   },
 
