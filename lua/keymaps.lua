@@ -33,7 +33,7 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 vim.keymap.set('n', '<leader>j', '<cmd>bprev<cr>', { desc = 'Previous buffer' })
-vim.keymap.set('n', '<leader>j', '<cmd>bnext<cr>', { desc = 'Next buffer' })
+vim.keymap.set('n', '<leader>k', '<cmd>bnext<cr>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<leader>x', '<cmd>bd<cr>', { desc = 'Delete buffer' })
 vim.keymap.set('n', '<leader>b', '<cmd>b#<cr>', { desc = 'Last buffer' })
 vim.keymap.set('n', '<c-w>b', '<cmd>w<bar>%db<bar>e#<bar>bd#<cr>', { desc = 'Delete all buffers apart from current' })
