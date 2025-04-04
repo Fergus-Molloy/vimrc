@@ -8,12 +8,13 @@ return {
     opts = {
       servers = {
         gopls = {},
+        erlangls = { cmd = { '/home/fergusmolloy/.local/bin/erlang_ls' }, filetypes = { 'erlang' } },
         elixirls = {
           cmd = { '/home/fergus/.files/scripts/.local/bin/elixir-ls' },
         },
       },
     },
-    ft = { 'lua', 'elixir', 'go' },
+    ft = { 'lua', 'elixir', 'go', 'erlang' },
     keys = {
       { '<leader>e', vim.diagnostic.open_float, desc = 'Open floating diagnostics' },
       { '<leader>q', vim.diagnostic.setloclist, desc = 'Open diagnostics list' },
