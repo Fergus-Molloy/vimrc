@@ -41,3 +41,6 @@ vim.keymap.set('n', '<c-w>b', '<cmd>w<bar>%db<bar>e#<bar>bd#<cr>', { desc = 'Del
 -- better visual mode pasting
 vim.keymap.set('v', 'p', 'pgvy', { silent = true })
 vim.keymap.set('v', 'P', 'Pgvy', { silent = true })
+
+vim.keymap.set({ 'n', 'v' }, 'x', '"_x', { silent = true })
+vim.keymap.set({ 'n', 'v' }, 'X', '"_X', { silent = true })
