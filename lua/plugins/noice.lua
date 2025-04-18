@@ -23,7 +23,7 @@ return {
         lsp_doc_border = true, -- add a border to hover docs and signature help
       },
       messages = {
-        enabled = false,
+        enabled = true, -- required for code actions
       },
       -- filter out annoying erlangls messages
       routes = {

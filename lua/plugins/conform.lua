@@ -2,7 +2,7 @@ return {
   {
     'stevearc/conform.nvim',
     event = 'LspAttach',
-    ft = { 'lua', 'elixir', 'go' },
+    ft = { 'lua', 'elixir', 'go', 'erlang', 'typescriptreact', 'typescript', 'json' },
     cmd = 'Format',
     keys = {
       {
@@ -29,6 +29,9 @@ return {
         formatters_by_ft = {
           lua = { 'stylua' },
           go = { 'gofmt', 'goimports' },
+          typescript = { 'prettier' },
+          typescriptreact = { 'prettier' },
+          json = { 'prettier' },
         },
       }
       vim.api.nvim_create_user_command('Format', function(args)

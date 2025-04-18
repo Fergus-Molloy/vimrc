@@ -1,8 +1,20 @@
 return {
   -- NOTE: [ THEMES ]
-  -- { 'savq/melange-nvim' },
-  -- { 'yorumicolors/yorumi.nvim' },
-  -- { 'f4z3r/gruvbox-material.nvim' },
+  -- {
+  -- 'yorumicolors/yorumi.nvim',
+  -- },
+  -- {
+  --  'savq/melange-nvim',
+  -- },
+  -- {
+  --   'sainnhe/gruvbox-material',
+  --   lazy = false,
+  --   config = function()
+  --     vim.g.gruvbox_material_background = 'medium'
+  --     vim.g.gruvbox_material_enable_italic = true
+  --     vim.cmd 'colorscheme gruvbox-material'
+  --   end,
+  -- },
   {
     'rebelot/kanagawa.nvim',
     lazy = false,
@@ -71,5 +83,22 @@ return {
   },
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = false },
+  },
+  {
+    'windwp/nvim-ts-autotag',
+    ft = { 'javascriptreact', 'typescriptreact', 'html' },
+    opts = {
+      opts = {
+        -- Defaults
+        enable_close = true, -- Auto close tags
+        enable_rename = true, -- Auto rename pairs of tags
+        enable_close_on_slash = false, -- Auto close on trailing </
+      },
+    },
+  },
 }
