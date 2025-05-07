@@ -2,7 +2,7 @@ return {
   {
     'stevearc/conform.nvim',
     event = 'LspAttach',
-    ft = { 'lua', 'elixir', 'go', 'erlang', 'typescriptreact', 'typescript', 'json' },
+    ft = { 'lua', 'elixir', 'go', 'erlang', 'typescriptreact', 'typescript', 'json', 'nix' },
     cmd = 'Format',
     keys = {
       {
@@ -32,6 +32,7 @@ return {
           typescript = { 'prettier' },
           typescriptreact = { 'prettier' },
           json = { 'prettier' },
+          nix = { 'nixfmt' },
         },
       }
       vim.api.nvim_create_user_command('Format', function(args)

@@ -11,7 +11,7 @@ return {
         ts_ls = {},
         erlangls = { cmd = { '/home/fergusmolloy/.local/bin/erlang_ls' }, filetypes = { 'erlang' } },
         elixirls = {
-          cmd = { '/home/fergus/.files/scripts/.local/bin/elixir-ls' },
+          cmd = { 'elixir-ls' },
         },
       },
     },
@@ -54,5 +54,17 @@ return {
         lspconfig[server].setup(config)
       end
     end,
+  },
+  {
+    'windwp/nvim-ts-autotag',
+    ft = { 'javascriptreact', 'typescriptreact', 'html' },
+    opts = {
+      opts = {
+        -- Defaults
+        enable_close = true, -- Auto close tags
+        enable_rename = true, -- Auto rename pairs of tags
+        enable_close_on_slash = false, -- Auto close on trailing </
+      },
+    },
   },
 }
