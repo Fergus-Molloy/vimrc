@@ -24,13 +24,6 @@ return {
         end,
         desc = 'Find buffer',
       },
-      {
-        '<leader>o',
-        function()
-          require('fzf-lua').oldfiles()
-        end,
-        desc = 'Find recently opened',
-      },
 
       -- lsp
       {

@@ -18,7 +18,7 @@ return {
         notify_on_error = true,
         format_on_save = function(bufnr)
           local cwd = vim.fn.getcwd()
-          if cwd:match '/cashout' then
+          if cwd:match '/cashout' or cwd:match '/cbe' then
             vim.notify_once('Detected cashout repo, auto format disabled', vim.log.levels.WARN)
             return
           elseif vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then

@@ -4,16 +4,9 @@ return {
     opts = {
       clear_before_yeet = false,
       interrupt_before_yeet = true,
+      yeet_and_run = true,
     },
     keys = {
-      {
-        -- Pop command cache open
-        '<leader><BS>',
-        function()
-          require('yeet').list_cmd()
-        end,
-        desc = 'Open yeet command cache',
-      },
       {
         -- Open target selection
         '<leader>yt',
@@ -46,14 +39,6 @@ return {
         desc = 'Toggle post write yeet aucmd',
       },
       {
-        -- Run command without clearing terminal, send C-c
-        '<leader>\\',
-        function()
-          require('yeet').execute(nil, { clear_before_yeet = true, interrupt_before_yeet = true })
-        end,
-        desc = 'Yeet last yoted command',
-      },
-      {
         -- Yeet visual selection. Useful sending core to a repl or running multiple commands.
         '<leader>yv',
         function()
@@ -61,14 +46,6 @@ return {
         end,
         mode = { 'n', 'v' },
         desc = 'Yeet selected text',
-      },
-      {
-        -- yeet go vet
-        '<leader>yg',
-        function()
-          require('yeet').execute('go vet ./... && golangci-lint run ./...', { clear_before_yeet = true })
-        end,
-        desc = 'Yeet go vet + golangci-lint',
       },
     },
   },
